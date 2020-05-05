@@ -1,0 +1,58 @@
+<%
+max_arguments = 2
+argument_array = (0..max_arguments).to_a
+
+def generate_parameter_signature(identifier, count)
+    return "" if count == 0
+    return (1..count).each.collect { |i| identifier + i.to_s }.join(", ")
+end
+%>
+import Swinject
+import SwinjectAutoregistration
+
+public protocol BaseViewController {}
+public protocol BaseInteractor {}
+public protocol BasePresenter {}
+public protocol BaseViewModel {}
+
+public extension Swinject.Container {
+
+<% argument_array.product(argument_array, argument_array, argument_array).each do |lookup_table| %>
+<%
+viewcontroller_parameter_signature = generate_parameter_signature("VC", lookup_table[0])
+interactor_parameter_signature = generate_parameter_signature("I", lookup_table[1])
+presenter_parameter_signature = generate_parameter_signature("P", lookup_table[2])
+viewmodel_parameter_signature = generate_parameter_signature("VM", lookup_table[3])
+singatures = [viewcontroller_parameter_signature, interactor_parameter_signature, presenter_parameter_signature, viewmodel_parameter_signature]
+    .select { |item| !item.empty? }
+    .join(", ")
+
+
+function_signature = "func register<VC: BaseViewController, I: BaseInteractor, P: BasePresenter, VM: BaseViewModel"
+function_signature += ", " + singatures if !singatures.empty?
+function_signature += ">("
+function_signature += "viewController: (((" + viewcontroller_parameter_signature + ")) -> VC)? = nil, "
+function_signature += "interactor: (((" + interactor_parameter_signature + ")) -> I)? = nil, "
+function_signature += "presenter: (((" + presenter_parameter_signature + ")) -> P)? = nil, "
+function_signature += "viewModel: (((" + viewmodel_parameter_signature + ")) -> VM)? = nil) {"
+%>
+    <%= function_signature %>
+
+        if let viewController = viewController {
+            autoregister(VC.self, initializer: viewController).inObjectScope(.transient)
+        }
+
+        if let interactor = interactor {
+            autoregister(I.self, initializer: interactor).inObjectScope(.transient)
+        }
+
+        if let presenter = presenter {
+            autoregister(P.self, initializer: presenter).inObjectScope(.transient)
+        }
+
+        if let viewModel = viewModel {
+            autoregister(VM.self, initializer: viewModel).inObjectScope(.transient)
+        }
+    }
+<% end %>
+}
