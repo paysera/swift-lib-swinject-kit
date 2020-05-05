@@ -1,58 +1,98 @@
 <%
-max_arguments = 2
-argument_array = (0..max_arguments).to_a
+view_controller_max_argument_count = 10
+interactor_max_argument_count = 10
+presenter_max_argument_count = 10
+view_model_max_argument_count = 5
+
+
+view_controller_argument_array = [-1] + (0..view_controller_max_argument_count).to_a
+interactor_argument_array = [-1] + (0..interactor_max_argument_count).to_a
+presenter_argument_array = [-1] + (0..presenter_max_argument_count).to_a
+view_model_argument_array = [-1] + (0..view_model_max_argument_count).to_a
 
 def generate_parameter_signature(identifier, count)
+    return nil if count == -1
     return "" if count == 0
     return (1..count).each.collect { |i| identifier + i.to_s }.join(", ")
+end
+
+def generate_signature_end(array, index)
+    array.drop(index).any? { |signature| !signature.nil? } ? ", " : ""
 end
 %>
 import Swinject
 import SwinjectAutoregistration
 
-public protocol BaseViewController {}
-public protocol BaseInteractor {}
-public protocol BasePresenter {}
-public protocol BaseViewModel {}
-
 public extension Swinject.Container {
 
-<% argument_array.product(argument_array, argument_array, argument_array).each do |lookup_table| %>
+<% view_controller_argument_array.product(interactor_argument_array, presenter_argument_array, view_model_argument_array).each do |lookup_table| %>
 <%
-viewcontroller_parameter_signature = generate_parameter_signature("VC", lookup_table[0])
+view_controller_parameter_signature = generate_parameter_signature("VC", lookup_table[0])
 interactor_parameter_signature = generate_parameter_signature("I", lookup_table[1])
 presenter_parameter_signature = generate_parameter_signature("P", lookup_table[2])
-viewmodel_parameter_signature = generate_parameter_signature("VM", lookup_table[3])
-singatures = [viewcontroller_parameter_signature, interactor_parameter_signature, presenter_parameter_signature, viewmodel_parameter_signature]
-    .select { |item| !item.empty? }
+view_model_parameter_signature = generate_parameter_signature("VM", lookup_table[3])
+singatures_array = [view_controller_parameter_signature, interactor_parameter_signature, presenter_parameter_signature, view_model_parameter_signature]
+signature = singatures_array
+    .select { |item| !item.nil? && !item.empty? }
     .join(", ")
 
+generics_singature = ""
+if !view_controller_parameter_signature.nil?
+    generics_singature += "VC: BaseViewController" + generate_signature_end(singatures_array, 1)
+end
 
-function_signature = "func register<VC: BaseViewController, I: BaseInteractor, P: BasePresenter, VM: BaseViewModel"
-function_signature += ", " + singatures if !singatures.empty?
+if !interactor_parameter_signature.nil?
+    generics_singature += "I: BaseInteractor" + generate_signature_end(singatures_array, 2)
+end
+
+if !presenter_parameter_signature.nil?
+    generics_singature += "P: BasePresenter" + generate_signature_end(singatures_array, 3)
+end
+
+if !view_model_parameter_signature.nil?
+    generics_singature += "VM: BaseViewModel"
+end
+
+next if generics_singature.empty?
+
+
+function_signature = "func registerComponents<" + generics_singature
+function_signature += ", " + signature if !signature.empty?
 function_signature += ">("
-function_signature += "viewController: (((" + viewcontroller_parameter_signature + ")) -> VC)? = nil, "
-function_signature += "interactor: (((" + interactor_parameter_signature + ")) -> I)? = nil, "
-function_signature += "presenter: (((" + presenter_parameter_signature + ")) -> P)? = nil, "
-function_signature += "viewModel: (((" + viewmodel_parameter_signature + ")) -> VM)? = nil) {"
+
+if !view_controller_parameter_signature.nil?
+    function_signature += "viewController: @escaping ((" + view_controller_parameter_signature + ")) -> VC" + generate_signature_end(singatures_array, 1)
+end
+
+if !interactor_parameter_signature.nil?
+    function_signature += "interactor: @escaping ((" + interactor_parameter_signature + ")) -> I" + generate_signature_end(singatures_array, 2)
+end
+
+if !presenter_parameter_signature.nil?
+    function_signature += "presenter: @escaping ((" + presenter_parameter_signature + ")) -> P" + generate_signature_end(singatures_array, 3)
+end
+
+if !view_model_parameter_signature.nil?
+    function_signature += "viewModel: @escaping ((" + view_model_parameter_signature + ")) -> VM"
+end
+
+function_signature += ")"
+
 %>
-    <%= function_signature %>
-
-        if let viewController = viewController {
-            autoregister(VC.self, initializer: viewController).inObjectScope(.transient)
-        }
-
-        if let interactor = interactor {
-            autoregister(I.self, initializer: interactor).inObjectScope(.transient)
-        }
-
-        if let presenter = presenter {
-            autoregister(P.self, initializer: presenter).inObjectScope(.transient)
-        }
-
-        if let viewModel = viewModel {
-            autoregister(VM.self, initializer: viewModel).inObjectScope(.transient)
-        }
+    <%= function_signature %> {
+<% if !view_controller_parameter_signature.nil? %>
+        autoregister(VC.self, initializer: viewController).inObjectScope(.transient)
+<% end %>
+<% if !interactor_parameter_signature.nil? %>
+        autoregister(I.self, initializer: interactor).inObjectScope(.transient)
+<% end %>
+<% if !presenter_parameter_signature.nil? %>
+        autoregister(P.self, initializer: presenter).inObjectScope(.transient)
+<% end %>
+<% if !view_model_parameter_signature.nil? %>
+        autoregister(VM.self, initializer: viewModel).inObjectScope(.transient)
+<% end %>
     }
+
 <% end %>
 }

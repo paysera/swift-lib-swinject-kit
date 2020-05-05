@@ -13,6 +13,7 @@
 		601A4E8424615011006B6C5F /* SwinjectAutoregistration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 601A4E8124615011006B6C5F /* SwinjectAutoregistration.framework */; };
 		601A4E8524615011006B6C5F /* SwinjectAutoregistration.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 601A4E8124615011006B6C5F /* SwinjectAutoregistration.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		601A4E8924615178006B6C5F /* Container+register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601A4E8824615178006B6C5F /* Container+register.swift */; };
+		6083F3A8246185D400523F4E /* BaseProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6083F3A7246185D400523F4E /* BaseProtocols.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -37,6 +38,7 @@
 		601A4E8024615011006B6C5F /* Swinject.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Swinject.framework; path = Carthage/Build/iOS/Swinject.framework; sourceTree = "<group>"; };
 		601A4E8124615011006B6C5F /* SwinjectAutoregistration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwinjectAutoregistration.framework; path = Carthage/Build/iOS/SwinjectAutoregistration.framework; sourceTree = "<group>"; };
 		601A4E8824615178006B6C5F /* Container+register.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Container+register.swift"; sourceTree = "<group>"; };
+		6083F3A7246185D400523F4E /* BaseProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseProtocols.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 				601A4E8824615178006B6C5F /* Container+register.swift */,
 				601A4E7724614B92006B6C5F /* SwinjectKit.h */,
 				601A4E7824614B92006B6C5F /* Info.plist */,
+				6083F3A7246185D400523F4E /* BaseProtocols.swift */,
 			);
 			path = SwinjectKit;
 			sourceTree = "<group>";
@@ -192,6 +195,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6083F3A8246185D400523F4E /* BaseProtocols.swift in Sources */,
 				601A4E8924615178006B6C5F /* Container+register.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
