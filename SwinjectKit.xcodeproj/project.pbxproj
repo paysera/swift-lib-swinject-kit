@@ -12,8 +12,14 @@
 		601A4E8324615011006B6C5F /* Swinject.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 601A4E8024615011006B6C5F /* Swinject.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		601A4E8424615011006B6C5F /* SwinjectAutoregistration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 601A4E8124615011006B6C5F /* SwinjectAutoregistration.framework */; };
 		601A4E8524615011006B6C5F /* SwinjectAutoregistration.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 601A4E8124615011006B6C5F /* SwinjectAutoregistration.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		601A4E8924615178006B6C5F /* Container+register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601A4E8824615178006B6C5F /* Container+register.swift */; };
 		6083F3A8246185D400523F4E /* BaseProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6083F3A7246185D400523F4E /* BaseProtocols.swift */; };
+		60AD287F2462B26400D82132 /* ServiceEntry+ObjectScope.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60AD287E2462B26400D82132 /* ServiceEntry+ObjectScope.swift */; };
+		60AD28812462B2B400D82132 /* Container+applyPropertyLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60AD28802462B2B400D82132 /* Container+applyPropertyLoader.swift */; };
+		60AD28832462B49600D82132 /* SwinjectPropertyLoader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60AD28822462B49600D82132 /* SwinjectPropertyLoader.framework */; };
+		60AD28842462B49600D82132 /* SwinjectPropertyLoader.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 60AD28822462B49600D82132 /* SwinjectPropertyLoader.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		60AD28862462B77600D82132 /* ComponentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60AD28852462B77600D82132 /* ComponentType.swift */; };
+		60F45BA824630D2D008B54C9 /* Container+registerComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F45BA624630D2C008B54C9 /* Container+registerComponent.swift */; };
+		60F45BA924630D2D008B54C9 /* Container+registerComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F45BA724630D2C008B54C9 /* Container+registerComponents.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,6 +30,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				601A4E8324615011006B6C5F /* Swinject.framework in Embed Frameworks */,
+				60AD28842462B49600D82132 /* SwinjectPropertyLoader.framework in Embed Frameworks */,
 				601A4E8524615011006B6C5F /* SwinjectAutoregistration.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -37,8 +44,13 @@
 		601A4E7824614B92006B6C5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		601A4E8024615011006B6C5F /* Swinject.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Swinject.framework; path = Carthage/Build/iOS/Swinject.framework; sourceTree = "<group>"; };
 		601A4E8124615011006B6C5F /* SwinjectAutoregistration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwinjectAutoregistration.framework; path = Carthage/Build/iOS/SwinjectAutoregistration.framework; sourceTree = "<group>"; };
-		601A4E8824615178006B6C5F /* Container+register.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Container+register.swift"; sourceTree = "<group>"; };
 		6083F3A7246185D400523F4E /* BaseProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseProtocols.swift; sourceTree = "<group>"; };
+		60AD287E2462B26400D82132 /* ServiceEntry+ObjectScope.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ServiceEntry+ObjectScope.swift"; sourceTree = "<group>"; };
+		60AD28802462B2B400D82132 /* Container+applyPropertyLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Container+applyPropertyLoader.swift"; sourceTree = "<group>"; };
+		60AD28822462B49600D82132 /* SwinjectPropertyLoader.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwinjectPropertyLoader.framework; path = Carthage/Build/iOS/SwinjectPropertyLoader.framework; sourceTree = "<group>"; };
+		60AD28852462B77600D82132 /* ComponentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentType.swift; sourceTree = "<group>"; };
+		60F45BA624630D2C008B54C9 /* Container+registerComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Container+registerComponent.swift"; sourceTree = "<group>"; };
+		60F45BA724630D2C008B54C9 /* Container+registerComponents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Container+registerComponents.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +59,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				601A4E8224615011006B6C5F /* Swinject.framework in Frameworks */,
+				60AD28832462B49600D82132 /* SwinjectPropertyLoader.framework in Frameworks */,
 				601A4E8424615011006B6C5F /* SwinjectAutoregistration.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -74,10 +87,14 @@
 		601A4E7624614B92006B6C5F /* SwinjectKit */ = {
 			isa = PBXGroup;
 			children = (
-				601A4E8824615178006B6C5F /* Container+register.swift */,
 				601A4E7724614B92006B6C5F /* SwinjectKit.h */,
 				601A4E7824614B92006B6C5F /* Info.plist */,
 				6083F3A7246185D400523F4E /* BaseProtocols.swift */,
+				60AD287E2462B26400D82132 /* ServiceEntry+ObjectScope.swift */,
+				60AD28802462B2B400D82132 /* Container+applyPropertyLoader.swift */,
+				60F45BA624630D2C008B54C9 /* Container+registerComponent.swift */,
+				60F45BA724630D2C008B54C9 /* Container+registerComponents.swift */,
+				60AD28852462B77600D82132 /* ComponentType.swift */,
 			);
 			path = SwinjectKit;
 			sourceTree = "<group>";
@@ -85,6 +102,7 @@
 		601A4E7F24615011006B6C5F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				60AD28822462B49600D82132 /* SwinjectPropertyLoader.framework */,
 				601A4E8024615011006B6C5F /* Swinject.framework */,
 				601A4E8124615011006B6C5F /* SwinjectAutoregistration.framework */,
 			);
@@ -179,6 +197,7 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Swinject.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwinjectAutoregistration.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwinjectPropertyLoader.framework",
 			);
 			outputFileListPaths = (
 			);
@@ -196,7 +215,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				6083F3A8246185D400523F4E /* BaseProtocols.swift in Sources */,
-				601A4E8924615178006B6C5F /* Container+register.swift in Sources */,
+				60AD28812462B2B400D82132 /* Container+applyPropertyLoader.swift in Sources */,
+				60AD287F2462B26400D82132 /* ServiceEntry+ObjectScope.swift in Sources */,
+				60F45BA824630D2D008B54C9 /* Container+registerComponent.swift in Sources */,
+				60F45BA924630D2D008B54C9 /* Container+registerComponents.swift in Sources */,
+				60AD28862462B77600D82132 /* ComponentType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

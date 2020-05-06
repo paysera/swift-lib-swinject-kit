@@ -1,2 +1,3 @@
 github "Swinject/Swinject" "2.7.1"
 github "Swinject/SwinjectAutoregistration" "2.7.0"
+github "vitallica/SwinjectPropertyLoader" "2fc6ebf298489a2a0701d7afdf17f14c80f78a6a"
