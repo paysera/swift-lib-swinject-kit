@@ -1,7 +1,3 @@
 #!/bin/sh
 
-files="Container+registerComponent Container+registerComponents"
-
-for file in $files; do
-  erb -v -T 1 $file.erb > "../SwinjectKit/${file}.swift"
-done
+erb -v -T 1 "Container+reg.erb" > "../SwinjectKit/Container+reg.swift"
