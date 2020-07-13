@@ -9,31 +9,12 @@
 /* Begin PBXBuildFile section */
 		601A4E7924614B92006B6C5F /* SwinjectKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 601A4E7724614B92006B6C5F /* SwinjectKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		601A4E8224615011006B6C5F /* Swinject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 601A4E8024615011006B6C5F /* Swinject.framework */; };
-		601A4E8324615011006B6C5F /* Swinject.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 601A4E8024615011006B6C5F /* Swinject.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		601A4E8424615011006B6C5F /* SwinjectAutoregistration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 601A4E8124615011006B6C5F /* SwinjectAutoregistration.framework */; };
-		601A4E8524615011006B6C5F /* SwinjectAutoregistration.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 601A4E8124615011006B6C5F /* SwinjectAutoregistration.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		60AD287F2462B26400D82132 /* ServiceEntry+ObjectScope.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60AD287E2462B26400D82132 /* ServiceEntry+ObjectScope.swift */; };
 		60AD28812462B2B400D82132 /* Container+applyPropertyLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60AD28802462B2B400D82132 /* Container+applyPropertyLoader.swift */; };
 		60AD28832462B49600D82132 /* SwinjectPropertyLoader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60AD28822462B49600D82132 /* SwinjectPropertyLoader.framework */; };
-		60AD28842462B49600D82132 /* SwinjectPropertyLoader.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 60AD28822462B49600D82132 /* SwinjectPropertyLoader.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		60CF2C1C249358B80079853C /* Container+reg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CF2C1B249358B80079853C /* Container+reg.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		601A4E8624615011006B6C5F /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				601A4E8324615011006B6C5F /* Swinject.framework in Embed Frameworks */,
-				60AD28842462B49600D82132 /* SwinjectPropertyLoader.framework in Embed Frameworks */,
-				601A4E8524615011006B6C5F /* SwinjectAutoregistration.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		601A4E7424614B92006B6C5F /* SwinjectKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwinjectKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -122,8 +103,6 @@
 				601A4E7024614B92006B6C5F /* Sources */,
 				601A4E7124614B92006B6C5F /* Frameworks */,
 				601A4E7224614B92006B6C5F /* Resources */,
-				601A4E8624615011006B6C5F /* Embed Frameworks */,
-				601A4E872461503F006B6C5F /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -176,29 +155,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		601A4E872461503F006B6C5F /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/Swinject.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/SwinjectAutoregistration.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/SwinjectPropertyLoader.framework",
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		601A4E7024614B92006B6C5F /* Sources */ = {
@@ -340,7 +296,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = X58GDRF465;
+				DEVELOPMENT_TEAM = EWVBKB55PN;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -356,7 +312,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Emenity.SwinjectKit;
+				PRODUCT_BUNDLE_IDENTIFIER = com.paysera.SwinjectKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -371,7 +327,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = X58GDRF465;
+				DEVELOPMENT_TEAM = EWVBKB55PN;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -387,7 +343,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Emenity.SwinjectKit;
+				PRODUCT_BUNDLE_IDENTIFIER = com.paysera.SwinjectKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
