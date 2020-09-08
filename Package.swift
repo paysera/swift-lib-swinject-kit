@@ -10,7 +10,7 @@ let package = Package(
     dependencies: [
         .package(url: "https://github.com/Swinject/Swinject", from: "2.7.1"),
         .package(url: "https://github.com/Swinject/SwinjectAutoregistration", from: "2.7.0"),
-        .package(url: "https://github.com/vytautasgimbutas/SwinjectPropertyLoader", from: "1.1.0"),
+        .package(url: "https://github.com/vytautasgimbutas/SwinjectPropertyLoader", from: "1.1.1"),
     ],
     targets: [
         .target(
