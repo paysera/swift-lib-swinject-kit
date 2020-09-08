@@ -15,7 +15,7 @@ let package = Package(
     targets: [
         .target(
             name: "SwinjectKit",
-            dependencies: ["Swinject", "SwinjectAutoregistration"]
+            dependencies: ["Swinject", "SwinjectAutoregistration", "SwinjectPropertyLoader"]
         ),
         .testTarget(
             name: "SwinjectKitTests",
