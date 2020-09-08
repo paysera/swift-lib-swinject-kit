@@ -1,6 +1,4 @@
 // swift-tools-version:5.3
-// The swift-tools-version declares the minimum version of Swift required to build this package.
-
 import PackageDescription
 
 let package = Package(
@@ -10,12 +8,18 @@ let package = Package(
         .library(name: "SwinjectKit", targets: ["SwinjectKit"]),
     ],
     dependencies: [
+        .package(url: "https://github.com/Swinject/Swinject", from: "2.7.1"),
+        .package(url: "https://github.com/Swinject/SwinjectAutoregistration", from: "2.7.0"),
+        .package(url: "https://github.com/vytautasgimbutas/SwinjectPropertyLoader", from: "1.1.0"),
     ],
     targets: [
         .target(
             name: "SwinjectKit",
-            dependencies: []
+            dependencies: ["Swinject", "SwinjectAutoregistration"]
+        ),
+        .testTarget(
+            name: "SwinjectKitTests",
+            dependencies: ["SwinjectKit"]
         ),
     ]
 )
-
