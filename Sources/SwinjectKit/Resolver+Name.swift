@@ -1,6 +1,6 @@
 import Swinject
 
-public extension Container {
+public extension Resolver {
     
     func resolve<T, Name>(
         _ serviceType: T.Type,
