@@ -1,20 +1,5 @@
-//
-//  PropertyLoaderError.swift
-//  Swinject
-//
-//  Created by mike.owens on 12/8/15.
-//  Copyright © 2015 Swinject Contributors. All rights reserved.
-//
 import Foundation
 
-
-/// Represents errors that can be thrown when loading properties into a container
-///
-/// - InvalidJSONFormat:         The JSON format of the properties file is incorrect. Must be top-level dictionary
-/// - InvalidPlistFormat:        The Plist format of the properties file is incorrect. Must be top-level dictionary
-/// - MissingResource:           The resource is missing from the bundle
-/// - InvalidResourceDataFormat: The resource cannot be converted to NSData
-///
 public enum PropertyLoaderError: Error {
     case invalidJSONFormat(bundle: Bundle, name: String)
     case invalidPlistFormat(bundle: Bundle, name: String)
@@ -22,7 +7,6 @@ public enum PropertyLoaderError: Error {
     case invalidResourceDataFormat(bundle: Bundle, name: String)
 }
 
-// MARK: - CustomStringConvertible
 extension PropertyLoaderError: CustomStringConvertible {
     public var description: String {
         switch self {
