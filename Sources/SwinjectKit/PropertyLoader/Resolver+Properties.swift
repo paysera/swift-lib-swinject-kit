@@ -8,11 +8,11 @@ private struct AssociatedKeys {
 extension Resolver {
     fileprivate var properties: [String: Any] {
         get {
-            return objc_getAssociatedObject(self, &AssociatedKeys.properties) as? [String: Any] ?? [:]
+            objc_getAssociatedObject(self, &AssociatedKeys.properties) as? [String: Any] ?? [:]
         }
     }
     
-    fileprivate func setProperties(_ newProperties: [String: Any]) {
+    private func setProperties(_ newProperties: [String: Any]) {
         objc_setAssociatedObject(
             self,
             &AssociatedKeys.properties,
@@ -31,6 +31,6 @@ extension Resolver {
     }
     
     public func property<Property>(_ name: String) -> Property? {
-        return properties[name] as? Property
+        properties[name] as? Property
     }
 }
