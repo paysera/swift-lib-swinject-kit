@@ -6,7 +6,7 @@ private struct AssociatedKeys {
 }
 
 extension Resolver {
-    fileprivate var properties: [String: Any] {
+    private var properties: [String: Any] {
         get {
             objc_getAssociatedObject(self, &AssociatedKeys.properties) as? [String: Any] ?? [:]
         }
