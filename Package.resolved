@@ -18,15 +18,6 @@
           "revision": "136e57231434d038c3beef939e81f60f36ec8aec",
           "version": "2.7.0"
         }
-      },
-      {
-        "package": "SwinjectPropertyLoader",
-        "repositoryURL": "https://github.com/vytautasgimbutas/SwinjectPropertyLoader",
-        "state": {
-          "branch": null,
-          "revision": "b9cf10234bd5fffacef1ebbde084dde1ab660c5e",
-          "version": "1.1.2"
-        }
       }
     ]
   },

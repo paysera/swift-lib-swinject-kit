@@ -1,6 +1,5 @@
 import Foundation
 import Swinject
-import SwinjectPropertyLoader
 
 public extension Container {
 
