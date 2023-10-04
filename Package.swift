@@ -3,7 +3,7 @@ import PackageDescription
 
 let package = Package(
     name: "SwinjectKit",
-    platforms: [.macOS(.v10_12), .iOS(.v10), .tvOS(.v9), .watchOS(.v2)],
+    platforms: [.iOS(.v14), .watchOS(.v7)],
     products: [
         .library(name: "SwinjectKit", targets: ["SwinjectKit"]),
     ],
